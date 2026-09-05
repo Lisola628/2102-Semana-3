@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El pasado del pasado · SPAN 2102 · Capítulo 15</title>
+<style>
+:root{
+  --night:#132434; --night-2:#1B3145; --ivory:#F6F1E7; --ivory-dim:#C4CBD3;
+  --gold:#E8B54B; --coral:#E2705A; --sage:#8FBF7F; --line:rgba(246,241,231,.22);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--night);color:var(--ivory);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  overflow:hidden;}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;
+  padding:5vh 6vw 9vh;}
+.slide.on{display:flex;}
+.eyebrow{font-size:1.5vh;letter-spacing:.22em;color:var(--gold);font-weight:700;margin:0 0 1.6vh;}
+h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:7.4vh;line-height:1.05;margin:0;}
+h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:5vh;line-height:1.1;margin:0 0 2.4vh;}
+p.big{font-family:Georgia,serif;font-size:3.1vh;line-height:1.42;margin:0 0 2vh;max-width:34ch;}
+p.mid{font-size:2.5vh;line-height:1.45;margin:0 0 1.6vh;color:var(--ivory);}
+p.dim{font-size:2vh;line-height:1.5;color:var(--ivory-dim);margin:0 0 1.4vh;}
+em{color:var(--gold);font-style:italic;}
+strong{color:var(--ivory);}
+.center{justify-content:center;}
+.row{display:flex;gap:5vw;align-items:center;flex:1;min-height:0;}
+.col{flex:1;min-width:0;}
+.art{flex:0 0 42%;display:flex;align-items:center;justify-content:center;}
+.art svg{width:100%;height:auto;max-height:56vh;}
+
+/* nav + timer */
+.bar{position:absolute;left:0;right:0;bottom:0;height:7vh;display:flex;align-items:center;
+  gap:.9vw;padding:0 2.4vw;background:rgba(0,0,0,.28);}
+.bar button{font:inherit;font-size:1.9vh;cursor:pointer;color:var(--ivory);
+  background:transparent;border:1px solid var(--line);border-radius:2vh;padding:.7vh 1.6vw;}
+.bar button:hover{background:rgba(246,241,231,.1);}
+.bar button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.count{margin-left:auto;font-size:1.9vh;color:var(--ivory-dim);letter-spacing:.05em;}
+.clock{font-family:Georgia,serif;font-size:3vh;color:var(--gold);min-width:4.6ch;text-align:right;}
+.clock.low{color:var(--coral);}
+
+/* timeline hero */
+.tl{margin-top:1vh;}
+.tl-lane{display:flex;align-items:center;gap:2.4vw;margin-bottom:2.4vh;}
+.tl-tag{flex:0 0 30%;text-align:right;}
+.tl-tag .when{display:block;font-size:1.9vh;line-height:1.5;color:var(--ivory-dim);}
+.tl-tag .tense{display:block;font-size:1.7vh;line-height:1.5;letter-spacing:.04em;
+  color:var(--gold);margin-top:.4vh;}
+.tl-bar{flex:1;min-width:0;min-height:6.4vh;border-radius:.6vh;display:flex;align-items:center;
+  padding:1.4vh 1.8vw;font-family:Georgia,serif;font-size:2.4vh;line-height:1.35;}
+.tl-bar span{display:block;}
+.b1{background:rgba(143,191,127,.16);border-left:.5vh solid var(--sage);}
+.b2{background:rgba(226,112,90,.18);border-left:.5vh solid var(--coral);}
+.b3{background:rgba(232,181,75,.16);border-left:.5vh solid var(--gold);}
+
+/* lists */
+ul.plain{list-style:none;margin:0;padding:0;}
+ul.plain li{font-size:2.4vh;line-height:1.5;margin-bottom:1.3vh;padding-left:1.6vw;
+  border-left:2px solid var(--line);}
+.people{font-size:2.1vh;color:var(--ivory-dim);line-height:1.55;margin:1.4vh 0 0;}
+.people b{color:var(--gold);font-weight:600;}
+table.forma{width:100%;border-collapse:collapse;font-size:2.4vh;}
+table.forma td{padding:.9vh 1vw;border-bottom:1px solid var(--line);}
+table.forma td:first-child{font-family:Georgia,serif;color:var(--gold);width:40%;}
+.ojo{border:1px solid var(--line);border-left:.5vh solid var(--gold);padding:2vh 1.8vw;margin-top:2vh;}
+.ojo p{margin:0 0 1vh;font-size:2.1vh;line-height:1.45;}
+.ojo p:last-child{margin:0;}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide on center" data-t="0">
+  <p class="eyebrow">SPAN 2102 · Capítulo 15 · miércoles 9 de septiembre</p>
+  <h1>El pasado<br>del pasado</h1>
+  <p class="big" style="margin-top:3vh">Toda historia tiene un momento <em>antes</em> del momento. Hoy aprendemos a contarlo.</p>
+</section>
+
+<!-- 2 · concepto -->
+<section class="slide" data-t="0">
+  <h2>Tres capas de tiempo</h2>
+  <div class="tl">
+    <div class="tl-lane">
+      <div class="tl-tag"><span class="when">lo más viejo</span><span class="tense">pluscuamperfecto</span></div>
+      <div class="tl-bar b3"><span>Ya <strong>había salido</strong> de casa.</span></div>
+    </div>
+    <div class="tl-lane">
+      <div class="tl-tag"><span class="when">el ancla</span><span class="tense">pretérito</span></div>
+      <div class="tl-bar b2"><span>Entonces <strong>empezó</strong> a llover.</span></div>
+    </div>
+    <div class="tl-lane">
+      <div class="tl-tag"><span class="when">ahora</span><span class="tense">presente</span></div>
+      <div class="tl-bar b1"><span>Por eso <strong>estoy</strong> mojada.</span></div>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:2.5vh;max-width:56ch">El pluscuamperfecto nunca viaja solo. Necesita un segundo momento pasado en el que apoyarse — el ancla. Si usted no puede señalar el ancla, probablemente quiere el pretérito.</p>
+</section>
+
+<!-- 3 · calentamiento -->
+<section class="slide" data-t="360">
+  <p class="eyebrow">Paso 1 · toda la clase</p>
+  <h2>Dos segundos antes</h2>
+  <p class="big">Ayer, a las 8:05 de la mañana, su profesora entró en el salón con los zapatos completamente mojados y sin café.</p>
+  <p class="mid" style="margin-top:1vh">¿Qué había pasado…</p>
+  <ul class="plain">
+    <li><em>dos segundos</em> antes?</li>
+    <li><em>dos minutos</em> antes?</li>
+    <li><em>dos horas</em> antes?</li>
+    <li><em>dos años</em> antes?</li>
+  </ul>
+</section>
+
+<!-- 4 · forma -->
+<section class="slide" data-t="0">
+  <p class="eyebrow">Paso 2 · la forma</p>
+  <h2><em>había</em> + participio</h2>
+  <div class="row" style="gap:4vw">
+    <div class="col">
+      <table class="forma">
+        <tr><td>yo había</td><td>había estudiado</td></tr>
+        <tr><td>tú habías</td><td>habías comido</td></tr>
+        <tr><td>usted / él / ella había</td><td>había nacido</td></tr>
+        <tr><td>nosotros/as habíamos</td><td>habíamos obtenido</td></tr>
+        <tr><td>vosotros/as habíais</td><td>habíais visto</td></tr>
+        <tr><td>ustedes / ellos habían</td><td>habían salido</td></tr>
+      </table>
+    </div>
+    <div class="col">
+      <div class="ojo">
+        <p><strong>¡OJO!</strong></p>
+        <p>El participio se congela en <em>-o</em>. Ellas ya <em>habían llegado</em>, nunca <em>llegadas</em>.</p>
+        <p>Nada se mete entre <em>había</em> y el participio.</p>
+        <p>Los pronombres van delante: <em>ya me había duchado</em>.</p>
+        <p><em>Había mucha gente</em> = there were. <em>Había llegado mucha gente</em> = had arrived.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · instrucciones de la escena -->
+<section class="slide" data-t="0">
+  <p class="eyebrow">Paso 4 · grupos de cuatro</p>
+  <h2>Cuatro testigos, una historia</h2>
+  <p class="mid" style="max-width:52ch">Algo pasó. Cada uno lo vio desde un lugar distinto — y nadie quiere cargar con la culpa.</p>
+  <ul class="plain" style="margin-top:1.5vh">
+    <li>Escojan <strong>una</strong> escena. Cada persona toma un personaje distinto.</li>
+    <li>Solo, escriba <strong>tres</strong> oraciones: qué había hecho usted <em>dos horas antes</em>, <em>diez minutos antes</em>, <em>dos segundos antes</em>.</li>
+    <li>En grupo, pongan las doce oraciones en orden y armen una sola historia.</li>
+    <li>Un minuto ante la clase. La clase decide: <em>¿quién tuvo la culpa?</em></li>
+  </ul>
+</section>
+
+<!-- 6 · milonga -->
+<section class="slide" data-t="300">
+  <p class="eyebrow">Escena 1 · Buenos Aires</p>
+  <div class="row">
+    <div class="col">
+      <h2>El apagón en la milonga</h2>
+      <p class="big">Son las once de la noche en San Telmo. En medio de un tango se apagan todas las luces del salón y la música se detiene.</p>
+      <p class="people"><b>Personajes:</b> la bailarina · el bandoneonista · el turista que grababa todo con el celular · la dueña del café</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 300 300" role="img" aria-label="Un salón de baile a oscuras con dos bailarines">
+        <rect x="14" y="14" width="272" height="272" rx="6" fill="#0E1B27" stroke="#31485E"/>
+        <!-- bombilla apagada -->
+        <line x1="150" y1="30" x2="150" y2="66" stroke="#5A6E82" stroke-width="3"/>
+        <circle cx="150" cy="82" r="17" fill="#1B2C3C" stroke="#5A6E82" stroke-width="3"/>
+        <rect x="143" y="97" width="14" height="8" fill="#5A6E82"/>
+        <line x1="128" y1="60" x2="172" y2="104" stroke="#E2705A" stroke-width="4" stroke-linecap="round"/>
+        <!-- pareja bailando -->
+        <g fill="none" stroke="#F6F1E7" stroke-width="4" stroke-linecap="round">
+          <circle cx="112" cy="150" r="12" fill="#F6F1E7" stroke="none"/>
+          <path d="M112 163 L112 205 M112 205 L98 245 M112 205 L128 243"/>
+          <path d="M112 176 L146 168"/>
+          <circle cx="188" cy="146" r="12" fill="#E8B54B" stroke="none"/>
+          <path d="M188 159 L188 202 M188 202 L206 244 M188 202 L172 240" stroke="#E8B54B"/>
+          <path d="M188 172 L152 166" stroke="#E8B54B"/>
+        </g>
+        <!-- suelo -->
+        <line x1="60" y1="256" x2="240" y2="256" stroke="#31485E" stroke-width="3"/>
+        <!-- notas silenciadas -->
+        <g fill="#5A6E82"><circle cx="238" cy="126" r="6"/><rect x="242" y="104" width="3" height="24"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · ruta 40 -->
+<section class="slide" data-t="300">
+  <p class="eyebrow">Escena 2 · la Patagonia</p>
+  <div class="row">
+    <div class="col">
+      <h2>El choque en la Ruta 40</h2>
+      <p class="big">A las seis de la tarde, un auto rojo y una bicicleta chocan lentamente en una parada de la ruta. Nadie se lastima, pero el mate termina en el suelo.</p>
+      <p class="people"><b>Personajes:</b> la conductora del auto rojo · el ciclista · la policía · el vendedor de empanadas</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 300 300" role="img" aria-label="Un auto y una bicicleta chocados junto a un mate caído">
+        <rect x="14" y="14" width="272" height="272" rx="6" fill="#0E1B27" stroke="#31485E"/>
+        <!-- montañas -->
+        <path d="M22 150 L70 96 L112 150 Z M104 150 L152 88 L200 150 Z" fill="#1B2C3C" stroke="#31485E" stroke-width="2"/>
+        <!-- ruta -->
+        <line x1="22" y1="214" x2="278" y2="214" stroke="#31485E" stroke-width="4"/>
+        <g stroke="#5A6E82" stroke-width="3" stroke-dasharray="14 12"><line x1="22" y1="232" x2="278" y2="232"/></g>
+        <!-- auto -->
+        <path d="M56 208 L64 184 L118 184 L130 208 Z" fill="#E2705A"/>
+        <rect x="52" y="206" width="84" height="14" rx="4" fill="#E2705A"/>
+        <circle cx="70" cy="222" r="9" fill="#0E1B27" stroke="#F6F1E7" stroke-width="3"/>
+        <circle cx="120" cy="222" r="9" fill="#0E1B27" stroke="#F6F1E7" stroke-width="3"/>
+        <!-- bici -->
+        <g fill="none" stroke="#F6F1E7" stroke-width="3">
+          <circle cx="182" cy="214" r="18"/><circle cx="238" cy="214" r="18"/>
+          <path d="M182 214 L206 190 L238 214 M206 190 L214 214 M206 190 L196 178"/>
+        </g>
+        <!-- destello del choque -->
+        <g stroke="#E8B54B" stroke-width="3" stroke-linecap="round">
+          <path d="M150 176 L156 160 M162 182 L178 176 M146 190 L132 196"/>
+        </g>
+        <!-- mate caído -->
+        <g transform="translate(150,250) rotate(28)">
+          <circle cx="0" cy="0" r="11" fill="#8FBF7F"/>
+          <rect x="-2" y="-22" width="5" height="16" fill="#F6F1E7"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · glaciar -->
+<section class="slide" data-t="300">
+  <p class="eyebrow">Escena 3 · el Parque Nacional Los Glaciares</p>
+  <div class="row">
+    <div class="col">
+      <h2>El desprendimiento del Perito Moreno</h2>
+      <p class="big">Un bloque enorme de hielo se desprende y cae al lago. Cincuenta turistas lo graban… y la única persona con la mejor cámara no grabó nada.</p>
+      <p class="people"><b>Personajes:</b> la guía turística · el fotógrafo que no grabó nada · una niña de ocho años · el guardaparques</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 300 300" role="img" aria-label="Un bloque de hielo cayendo de un glaciar al agua">
+        <rect x="14" y="14" width="272" height="272" rx="6" fill="#0E1B27" stroke="#31485E"/>
+        <!-- pared del glaciar -->
+        <path d="M22 214 L22 70 L92 54 L128 84 L120 214 Z" fill="#1B2C3C" stroke="#7FA8C9" stroke-width="2"/>
+        <path d="M46 70 L54 214 M84 60 L78 214" stroke="#31485E" stroke-width="2"/>
+        <!-- bloque que cae -->
+        <g transform="translate(168,120) rotate(18)">
+          <path d="M0 0 L46 -10 L54 34 L8 44 Z" fill="#7FA8C9" opacity=".9"/>
+        </g>
+        <!-- agua -->
+        <rect x="22" y="214" width="256" height="64" fill="#16293A"/>
+        <g stroke="#7FA8C9" stroke-width="2.5" fill="none" opacity=".8">
+          <path d="M132 226 q14 -9 28 0 t28 0"/>
+          <path d="M120 244 q18 -10 36 0 t36 0"/>
+          <path d="M148 262 q16 -9 32 0"/>
+        </g>
+        <!-- salpicadura -->
+        <g stroke="#F6F1E7" stroke-width="3" stroke-linecap="round">
+          <path d="M196 206 L204 186 M214 208 L230 194 M180 208 L172 190"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · iguazú -->
+<section class="slide" data-t="300">
+  <p class="eyebrow">Escena 4 · las Cataratas del Iguazú</p>
+  <div class="row">
+    <div class="col">
+      <h2>El único turista seco</h2>
+      <p class="big">El grupo vuelve de la Garganta del Diablo completamente empapado. Todos menos una persona, que llega perfectamente seca y muy tranquila.</p>
+      <p class="people"><b>Personajes:</b> el turista seco · la guía del parque · el señor que perdió el sombrero en el agua · el vendedor de impermeables</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 300 300" role="img" aria-label="Una catarata y una persona con paraguas">
+        <rect x="14" y="14" width="272" height="272" rx="6" fill="#0E1B27" stroke="#31485E"/>
+        <!-- escalones de la catarata -->
+        <path d="M22 62 L152 62 L152 108 L206 108 L206 158 L278 158" fill="none" stroke="#31485E" stroke-width="4"/>
+        <g stroke="#7FA8C9" stroke-width="3" stroke-linecap="round" opacity=".85">
+          <line x1="44" y1="66" x2="44" y2="176"/><line x1="66" y1="66" x2="66" y2="192"/>
+          <line x1="88" y1="66" x2="88" y2="170"/><line x1="110" y1="66" x2="110" y2="196"/>
+          <line x1="132" y1="66" x2="132" y2="180"/>
+          <line x1="170" y1="112" x2="170" y2="196"/><line x1="192" y1="112" x2="192" y2="182"/>
+          <line x1="226" y1="162" x2="226" y2="204"/><line x1="252" y1="162" x2="252" y2="196"/>
+        </g>
+        <!-- neblina -->
+        <g stroke="#31485E" stroke-width="3" fill="none">
+          <path d="M40 214 q22 -10 44 0 t44 0"/><path d="M160 218 q22 -10 44 0 t44 0"/>
+        </g>
+        <!-- persona con paraguas -->
+        <g transform="translate(96,196)">
+          <path d="M-34 0 a34 34 0 0 1 68 0 Z" fill="#E8B54B"/>
+          <line x1="0" y1="0" x2="0" y2="30" stroke="#E8B54B" stroke-width="3"/>
+          <circle cx="0" cy="42" r="11" fill="#F6F1E7"/>
+          <path d="M0 53 L0 80 M0 80 L-12 96 M0 80 L12 96" stroke="#F6F1E7" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · rambla -->
+<section class="slide" data-t="300">
+  <p class="eyebrow">Escena 5 · Montevideo</p>
+  <div class="row">
+    <div class="col">
+      <h2>El auto azul parado en la Rambla</h2>
+      <p class="big">A la hora del atardecer, un auto azul de los años sesenta se detiene en medio de la Rambla y no arranca más. Detrás se forma una fila de veinte vehículos.</p>
+      <p class="people"><b>Personajes:</b> el dueño del auto, de 75 años · la mecánica · el conductor del ómnibus que está atrás · la joven que filma todo</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 300 300" role="img" aria-label="Un auto viejo detenido frente al mar al atardecer">
+        <rect x="14" y="14" width="272" height="272" rx="6" fill="#0E1B27" stroke="#31485E"/>
+        <!-- sol -->
+        <circle cx="216" cy="106" r="34" fill="#E8B54B" opacity=".85"/>
+        <!-- mar -->
+        <rect x="22" y="140" width="256" height="42" fill="#16293A"/>
+        <g stroke="#31485E" stroke-width="2.5" fill="none">
+          <path d="M34 156 q16 -8 32 0 t32 0 t32 0"/><path d="M150 168 q16 -8 32 0 t32 0 t32 0"/>
+        </g>
+        <!-- rambla -->
+        <rect x="22" y="182" width="256" height="96" fill="#132434"/>
+        <line x1="22" y1="196" x2="278" y2="196" stroke="#31485E" stroke-width="3"/>
+        <!-- auto azul -->
+        <path d="M60 234 L74 210 L128 210 L142 234 Z" fill="#7FA8C9"/>
+        <rect x="54" y="232" width="96" height="16" rx="5" fill="#7FA8C9"/>
+        <circle cx="76" cy="252" r="10" fill="#0E1B27" stroke="#F6F1E7" stroke-width="3"/>
+        <circle cx="130" cy="252" r="10" fill="#0E1B27" stroke="#F6F1E7" stroke-width="3"/>
+        <!-- humo -->
+        <g fill="none" stroke="#5A6E82" stroke-width="3" stroke-linecap="round">
+          <path d="M96 204 q-8 -14 4 -20 t2 -18"/>
+        </g>
+        <!-- fila detrás -->
+        <g fill="#31485E">
+          <rect x="176" y="222" width="42" height="24" rx="5"/>
+          <rect x="228" y="222" width="42" height="24" rx="5"/>
+        </g>
+        <g fill="#E2705A"><circle cx="180" cy="216" r="4"/><circle cx="232" cy="216" r="4"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · reconstrucción -->
+<section class="slide" data-t="360">
+  <p class="eyebrow">Paso 4 · en grupo</p>
+  <h2>Armen la historia</h2>
+  <p class="mid" style="max-width:50ch">Pongan las doce oraciones en orden cronológico, de lo más viejo a lo más reciente, y cuéntenla como una sola historia.</p>
+  <div class="ojo" style="margin-top:2vh">
+    <p><strong>Para defenderse y para acusar</strong></p>
+    <p><em>Yo no tuve la culpa, porque ya había…</em> · <em>Cuando llegué, ella ya había…</em> · <em>Todavía no había… cuando…</em></p>
+    <p><em>Nunca antes había visto algo así.</em> · <em>Resulta que él había…</em> · <em>Para colmo, nadie había…</em> · <em>¡Un momento! Usted había dicho que…</em></p>
+  </div>
+</section>
+
+<!-- 12 · veredicto -->
+<section class="slide center" data-t="0">
+  <p class="eyebrow">La clase decide</p>
+  <h1>¿Quién tuvo<br>la culpa?</h1>
+  <p class="big" style="margin-top:3vh">¿Y quién tiene la mejor excusa? Voten — pero justifiquen el voto con un pluscuamperfecto.</p>
+</section>
+
+<div class="bar">
+  <button type="button" id="prev">← Anterior</button>
+  <button type="button" id="next">Siguiente →</button>
+  <button type="button" id="timer">Iniciar reloj</button>
+  <span class="clock" id="clock" aria-live="off">—</span>
+  <span class="count" id="count"></span>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, tId = null, left = 0;
+  var clock = document.getElementById('clock');
+  var tBtn  = document.getElementById('timer');
+  var count = document.getElementById('count');
+
+  function fmt(s){ var m = Math.floor(s/60); s = s%60; return m + ':' + (s<10?'0':'') + s; }
+
+  function stop(){ if(tId){ clearInterval(tId); tId = null; } tBtn.textContent = 'Iniciar reloj'; }
+
+  function show(n){
+    stop();
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach(function(s,k){ s.classList.toggle('on', k===i); });
+    count.textContent = (i+1) + ' / ' + slides.length;
+    left = parseInt(slides[i].dataset.t || '0', 10);
+    if(left){ clock.textContent = fmt(left); clock.classList.remove('low'); tBtn.disabled = false; }
+    else { clock.textContent = '—'; clock.classList.remove('low'); tBtn.disabled = true; }
+  }
+
+  function tick(){
+    left--;
+    clock.textContent = fmt(Math.max(0,left));
+    if(left <= 30) clock.classList.add('low');
+    if(left <= 0){ stop(); clock.textContent = '¡Tiempo!'; }
+  }
+
+  tBtn.addEventListener('click', function(){
+    if(tId){ stop(); return; }
+    if(left <= 0) left = parseInt(slides[i].dataset.t || '0', 10);
+    if(!left) return;
+    tId = setInterval(tick, 1000);
+    tBtn.textContent = 'Pausar';
+  });
+
+  document.getElementById('prev').addEventListener('click', function(){ show(i-1); });
+  document.getElementById('next').addEventListener('click', function(){ show(i+1); });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); show(i+1); }
+    else if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); show(i-1); }
+    else if(e.key === 'Home'){ show(0); }
+    else if(e.key === 'End'){ show(slides.length-1); }
+  });
+
+  show(0);
+})();
+</script>
+</body>
+</html>
