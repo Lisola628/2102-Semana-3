@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diversidad y recursos naturales · SPAN 2102</title>
+<style>
+:root{
+  --ink:#14213D; --blue:#2A6F97; --blue-pale:#F2F8FB; --blue-line:#C9D6E0;
+  --green:#4F7A2E; --green-pale:#F4F7F0; --green-line:#D5E0C8;
+  --gold-pale:#FFF8E6; --gold-line:#E8D9A8; --muted:#4A5A6A; --paper:#FFFFFF;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#EEF2F5;color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65;font-size:16px;}
+.wrap{max-width:820px;margin:0 auto;padding:28px 20px 60px;background:var(--paper);}
+header.hero{border-left:6px solid var(--blue);padding:18px 22px;background:var(--blue-pale);margin-bottom:22px;border-radius:0 6px 6px 0;}
+header.hero h1{margin:0 0 6px;font-size:27px;line-height:1.25;}
+header.hero .meta{margin:0;font-size:15px;color:var(--blue);font-weight:600;}
+header.hero .hello{margin:12px 0 0;font-size:15px;color:var(--muted);}
+h2.sec{font-size:15px;margin:0 0 8px;font-weight:700;}
+.box-gold{padding:12px 16px;background:var(--gold-pale);border:1px solid var(--gold-line);border-radius:6px;font-size:15px;margin:0 0 30px;}
+.box-blue{padding:14px 16px;background:var(--blue-pale);border-left:4px solid var(--blue);border-radius:0 6px 6px 0;margin:0;}
+.box-green{padding:14px 16px;background:var(--green-pale);border:1px solid var(--green-line);border-radius:6px;margin:0;}
+.box-warn{padding:14px 16px;background:var(--gold-pale);border:1px solid var(--gold-line);border-radius:6px;margin:0;}
+.step{margin-bottom:34px;padding-bottom:4px;}
+.step .tag{margin:0 0 4px;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--green);font-weight:700;}
+.step h3{margin:0 0 6px;font-size:20px;}
+.how{margin:0 0 12px;font-size:15px;color:var(--muted);font-style:italic;}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:0 0 14px;}
+th{border:1px solid var(--blue-line);background:#EDF3F7;padding:9px;text-align:left;}
+td{border:1px solid var(--blue-line);padding:6px 9px;vertical-align:top;}
+ol,ul{margin:0 0 14px;padding-left:24px;}
+li{margin-bottom:7px;}
+.es{font-size:16px;}
+footer{border-top:2px solid var(--blue);padding-top:16px;margin-top:10px;font-size:14.5px;color:var(--muted);}
+.pill{display:inline-block;background:#E7EFF5;color:var(--blue);border-radius:20px;padding:2px 11px;font-size:13px;font-weight:600;}
+.escena{border:1px solid var(--blue-line);border-radius:8px;padding:14px 16px;margin:0 0 12px;background:#FCFDFE;}
+.escena h4{margin:0 0 4px;font-size:17px;color:var(--blue);}
+.escena .lugar{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 6px;}
+.escena p{margin:0 0 6px;}
+.escena .personajes{margin:0;font-size:15px;color:var(--muted);}
+
+/* ---- campos para escribir ---- */
+input.f{font:inherit;color:var(--ink);background:#FFFDF5;border:none;border-bottom:2px solid var(--gold-line);
+  padding:2px 6px;min-width:120px;width:170px;border-radius:3px 3px 0 0;}
+input.f:focus{outline:none;background:#FFF6D9;border-bottom-color:var(--blue);}
+input.f.wide{width:100%;}
+input.f.mini{width:64px;min-width:0;}
+td input.f{width:100%;min-width:0;background:transparent;border-bottom:1px dashed var(--blue-line);}
+td input.f:focus{background:#FFF6D9;border-bottom-style:solid;border-bottom-color:var(--blue);}
+textarea.f{font:inherit;color:var(--ink);background:#FFFDF5;border:1px solid var(--gold-line);border-radius:6px;
+  width:100%;padding:9px 11px;min-height:78px;resize:vertical;display:block;margin:6px 0 0;}
+textarea.f:focus{outline:none;background:#FFF6D9;border-color:var(--blue);}
+.answer-print{display:none;white-space:pre-wrap;border-bottom:1px solid #999;min-height:1.4em;padding:2px 0;}
+
+/* ---- barra de herramientas ---- */
+.toolbar{position:sticky;top:0;z-index:10;background:#fff;border:1px solid var(--blue-line);border-radius:8px;
+  padding:10px 12px;margin:0 0 24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.toolbar button{font:inherit;font-size:14.5px;cursor:pointer;border:1px solid var(--blue-line);background:#F7FAFC;
+  color:var(--ink);border-radius:6px;padding:7px 13px;}
+.toolbar button:hover{background:var(--blue-pale);border-color:var(--blue);}
+.toolbar button.primary{background:var(--blue);border-color:var(--blue);color:#fff;}
+.toolbar button.primary:hover{background:#215B7D;}
+.toolbar .status{font-size:13.5px;color:var(--muted);margin-left:auto;}
+.namebar{margin:0 0 22px;font-size:15px;}
+.namebar label{font-weight:600;margin-right:8px;}
+
+@media print{
+  body{background:#fff;font-size:11.5pt;}
+  .wrap{max-width:none;padding:0;}
+  .step{page-break-inside:avoid;}
+  .toolbar{display:none;}
+  input.f{background:transparent;border-bottom:1px solid #666;}
+  textarea.f{display:none;}
+  .answer-print{display:block;}
+}
+</style>
+</head>
+<body data-page="02-viernes-diversidad-recursos-naturales">
+<div class="wrap">
+
+<header class="hero">
+  <p class="meta">Friday, September 11 · Capítulo 15, Mundo hispano · pp. 469–471</p>
+  <h1>Diversidad y recursos naturales: la Argentina y el Uruguay</h1>
+  <p class="hello">Cultural day, and the last class before evaluations. One country stretches from tropical rainforest to Antarctica; the other has wetlands that look a lot like ours. We read, we compare, and we finish by rehearsing the kind of conversation the oral exam asks for.</p>
+</header>
+
+<div class="toolbar" role="region" aria-label="Herramientas">
+  <button type="button" id="btn-print" class="primary">Imprimir / Guardar en PDF</button>
+  <button type="button" id="btn-download">Descargar mis respuestas</button>
+  <button type="button" id="btn-clear">Borrar todo</button>
+  <span class="status" id="status" aria-live="polite"></span>
+</div>
+<p class="namebar"><label for="student-name">Nombre:</label><input class="f wide" id="student-name" data-k="nombre" style="max-width:320px" autocomplete="name"></p>
+
+<p class="box-gold"><strong>How this page works.</strong> Type your answers straight into it. Everything saves automatically <em>in this browser on this device</em>; it is not sent to me and it is not stored online. For a permanent copy, use <strong>Imprimir / Guardar en PDF</strong> or <strong>Descargar mis respuestas</strong> before you close.</p>
+
+<h2 class="sec">Today you will be able to…</h2>
+<ul>
+<li>Describe geography and natural resources in Argentina and Uruguay, and compare them to Louisiana.</li>
+<li>Read a short literary text and say what it means, not just what happens.</li>
+<li>Keep a spontaneous conversation going in Spanish — the exact skill Examen Oral 1 measures.</li>
+</ul>
+
+<p class="box-gold"><strong>Bring to class:</strong> your book (pp. 469–471), already read. Today is mostly talking, so the reading has to happen before you walk in.</p>
+
+<section class="step">
+  <p class="tag">Paso 1 · 4 min</p>
+  <h3>Antes de leer: la belleza natural de aquí</h3>
+  <p class="how">Pairs, out loud first. Then one sentence in writing.</p>
+  <p class="es" style="margin-bottom:8px">¿Qué ejemplos de belleza natural <em>(beauty)</em> hay en la zona donde usted vive? Y una pregunta más difícil: ¿qué ha perdido esta zona en los últimos cincuenta años?</p>
+  <p style="font-size:15px;color:#4A5A6A;margin-bottom:10px"><em>Para empezar:</em> <span class="es">el pantano · los cipreses · el río Misisipi · el Golfo de México · los caimanes · el musgo español · las garzas</span></p>
+  <textarea class="f" placeholder=""></textarea>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 2 · 10 min</p>
+  <h3>Rompecabezas: dos lecturas, un solo grupo</h3>
+  <p class="how">Half the class takes one section, half the other. Then you pair up and teach each other — without showing your partner the page. You have to say it.</p>
+  <table>
+    <tr><th style="width:50%">Grupo A · «En la Argentina y el Uruguay» (p. 469)</th><th>Grupo B · «En otros países hispanos» (p. 469)</th></tr>
+    <tr><td class="es">Busque: el ombú · las cataratas del Iguazú · el glaciar Perito Moreno · el Aconcagua · la Pampa · los Humedales de Santa Lucía · Punta del Este</td><td class="es">Busque: los países megadiversos · el PNUMA · la energía eólica y solar en España · el porcentaje de biodiversidad del planeta</td></tr>
+  </table>
+  <p><strong>Tres datos que voy a enseñarle a mi compañero/a:</strong></p>
+  <ol class="es">
+    <li><input class="f" style="width:100%"></li>
+    <li><input class="f" style="width:100%"></li>
+    <li><input class="f" style="width:100%"></li>
+  </ol>
+  <p><strong>Ahora, en parejas A + B</strong>, sin mirar el libro:</p>
+  <ol class="es">
+    <li>¿Qué atracción natural se destaca <em>(stands out)</em> al norte de la Argentina? <input class="f" style="width:100%"></li>
+    <li>¿Por qué son interesantes los Humedales de Santa Lucía y el Este del Uruguay? <input class="f" style="width:100%"></li>
+    <li>¿Qué países hispanos están entre los más megadiversos del mundo? <input class="f" style="width:100%"></li>
+  </ol>
+  <div class="box-warn">
+    <p style="margin:0 0 6px"><strong>¡OJO! El voseo</strong> — no exercise, just so your ear is ready.</p>
+    <p style="margin:0 0 6px">In Argentina and Uruguay, <span class="es"><strong>vos</strong></span> replaces <span class="es"><strong>tú</strong></span>. The informal commands are easier than the <em>tú</em> forms: drop the <strong>-r</strong> from the infinitive, accent the last vowel. No stem changes.</p>
+    <p style="margin:0" class="es">escuchá = escucha · pensá = piensa · unite = únete · hacete = hazte · ayudá = ayuda · andá = ve · defendé = defiende</p>
+  </div>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 3 · 8 min</p>
+  <h3>Luisiana y el Uruguay: dos tierras de humedales</h3>
+  <p class="how">Pairs. Talk it through, then write two sentences. Two or three pairs report to the class.</p>
+  <p>Uruguay protects the Humedales de Santa Lucía because they hold fresh water and support an ecosystem of enormous value. Louisiana has the largest coastal wetland in the continental United States — and has been losing it for decades.</p>
+  <p><strong>Dos oraciones comparativas.</strong> Use por lo menos un <em>pretérito perfecto</em> (<span class="es">ha perdido, hemos protegido…</span>), un <em>pluscuamperfecto</em> (<span class="es">antes de 2005 nadie había…</span>) y una expresión de transición (<span class="es"><em>primero · sin embargo · además · por eso · finalmente</em></span>). Esta es exactamente la clase de párrafo que usted va a escribir el lunes.</p>
+  <ol class="es">
+    <li><textarea class="f" placeholder=""></textarea></li>
+    <li><textarea class="f" placeholder=""></textarea></li>
+  </ol>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 4 · 10 min</p>
+  <h3>Lectura: «Azul Cielo», de Laura Busom Fuertes</h3>
+  <p class="how">You read it at home. Ten minutes here on what it means. The narrator is not a person.</p>
+  <div class="box-green">
+    <p style="margin:0 0 6px"><strong>Vocabulario para leer</strong></p>
+    <p style="margin:0" class="es">el alma <em>soul</em> · el azul celeste <em>light sky blue</em> · la matrícula <em>car license plate</em> · la tartana <em>un coche viejo e inútil</em> · caer en la cuenta (de) <em>to realize</em> · fijarse (en) <em>to notice</em> · resplandecer <em>to shine</em></p>
+  </div>
+  <p style="margin-top:14px"><strong>A. Comprensión.</strong> En parejas, oralmente. Escriba solo una nota corta.</p>
+  <ol class="es">
+    <li>¿Quién y cómo es el protagonista? <input class="f" style="width:100%"></li>
+    <li>¿En qué cae en cuenta el protagonista, gracias al otro personaje? <input class="f" style="width:100%"></li>
+  </ol>
+  <p><strong>B. El pluscuamperfecto en la literatura.</strong> El coche recuerda lo que <em>había</em> sido. Copie una frase del cuento con <span class="es"><em>había</em> + participio</span>:</p>
+  <input class="f wide">
+  <p style="margin-top:12px"><strong>C. Interpretación.</strong> ¿Qué simbolizan el coche viejo y el coche nuevo? ¿Cuál es la moraleja <em>(moral)</em>?</p>
+  <textarea class="f" placeholder=""></textarea>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 5 · 10 min</p>
+  <h3>Ensayo para el Examen Oral 1</h3>
+  <p class="how">Pairs, in Spanish. Ungraded — but it is the same shape and the same clock as the exam.</p>
+  <p>Examen Oral 1 is a <strong>four-minute</strong> conversation with a partner. Both of you get the <em>same</em> card, so there is no interviewer and no roles: you share responsibility for keeping it going. You will have 10 minutes to plan with your partner beforehand, and you hand in every note before anyone starts. Today we practice on a different topic, so nothing you say today is a script for the 16th.</p>
+  <div class="box-green">
+    <p style="margin:0 0 6px"><strong>Sus tres herramientas</strong></p>
+    <p style="margin:0 0 5px"><strong>1. Circunloquio</strong> — never stop for a missing word. <span class="es"><em>Es una cosa que… · Es un lugar donde… · Es como un/una… pero más… · No sé la palabra, pero sirve para…</em></span></p>
+    <p style="margin:0 0 5px"><strong>2. Preguntas de seguimiento</strong> — three real questions is the minimum on the rubric. Always hand it back. <span class="es"><em>¿Y usted? · ¿Por qué dice eso? · ¿Cuándo fue? · ¿Y qué pasó después? · ¿Me puede dar un ejemplo?</em></span></p>
+    <p style="margin:0"><strong>3. Reaccionar</strong> — buy yourself time. <span class="es"><em>¡No me diga! · Qué interesante… · Pues, depende. · A ver… · Estoy de acuerdo, pero…</em></span></p>
+  </div>
+  <div class="box-warn" style="margin-top:14px">
+    <p style="margin:0 0 6px"><strong>Si le toca una pregunta que no puede contestar con la gramática que tenemos</strong></p>
+    <p style="margin:0 0 6px">Si alguna vez le hacen una pregunta hipotética del tipo <span class="es"><em>«Si fueras alcalde(a), ¿qué cambiarías?»</em></span>, esa forma verbal es del Capítulo 18 y todavía no la hemos estudiado. <strong>No la necesita.</strong> La pregunta pide una propuesta, y usted ya sabe proponer:</p>
+    <p style="margin:0 0 6px" class="es"><em>«Yo le <strong>recomiendo</strong> a la ciudad que <strong>construya</strong> más carriles para bicicletas».</em> · <em>«Es importante que la universidad <strong>invierta</strong> en el reciclaje».</em> · <em>«Lo primero que <strong>hay que hacer</strong> es…».</em></p>
+    <p style="margin:0">Misma idea, misma calidad de respuesta, con el subjuntivo que usted maneja desde 2101. Nunca se quede callado/a por una forma verbal.</p>
+  </div>
+
+  <p style="margin-top:16px"><strong>Ahora, el ensayo: cuatro minutos, con reloj.</strong> Empiecen con un saludo natural y terminen con un cierre. Cada uno tiene que hacer <strong>tres preguntas de verdad</strong> como mínimo — cuéntenlas con los dedos. Turnos parejos: si uno de los dos habla un minuto seguido, eso ya suena a discurso preparado. Usen los tiempos perfectos cuando le ayuden a decir <em>lo que ha pasado</em> y <em>lo que todavía no se ha resuelto</em>.</p>
+  <p><strong>El tema de hoy</strong> (no es el del examen):</p>
+  <ol class="es">
+    <li>¿Qué lugar natural de la Argentina o del Uruguay le gustaría conocer? ¿Por qué ese y no otro?</li>
+    <li>¿Ha visitado usted alguna vez un parque nacional o una reserva? ¿Cómo era? ¿Había estado allí antes?</li>
+    <li>¿Qué ha hecho este país por sus lugares naturales? ¿Qué todavía no ha resuelto?</li>
+    <li>¿Le alegra que se hayan protegido algunos humedales, o le parece una lástima que no se haya hecho más?</li>
+  </ol>
+  <p><strong>Autoevaluación.</strong> ¿Cuántas preguntas hizo usted? ¿Qué palabra le faltó, y cómo la resolvió sin usar inglés?</p>
+  <textarea class="f" placeholder=""></textarea>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 6 · 3 min</p>
+  <h3>Boleto de salida</h3>
+  <p class="how">Index card, with your name.</p>
+  <ol class="es">
+    <li>Un dato sobre la Argentina o el Uruguay que usted no sabía antes de esta clase.<br><textarea class="f" placeholder=""></textarea></li>
+    <li>Una cosa del Capítulo 15 que usted todavía necesita repasar antes del examen.<br><textarea class="f" placeholder=""></textarea></li>
+  </ol>
+</section>
+
+<footer>
+  <p style="margin:0 0 6px"><span class="pill">Semana 4 · Evaluaciones</span> <strong>lunes 14:</strong> IPA 1, Comunicación Escrita — Composición 1. &nbsp;·&nbsp; <strong>miércoles 16 y viernes 18:</strong> Examen Oral 1 — cuatro minutos en parejas, 10 de preparación.</p>
+  <p style="margin:0">Review all of Capítulo 15: environmental vocabulary, the participle as adjective, present perfect indicative and subjunctive, and the pluperfect. For the oral, practice out loud with a classmate — reading your notes silently is not the same skill.</p>
+</footer>
+
+</div>
+<script>
+(function(){
+  var KEY = "span2102:" + (document.body.dataset.page || location.pathname);
+  var fields = [];
+  var statusEl, saveTimer;
+
+  function init(){
+    statusEl = document.getElementById("status");
+    fields = Array.prototype.slice.call(document.querySelectorAll(".f"));
+    fields.forEach(function(el, i){
+      if(!el.dataset.k) el.dataset.k = "q" + i;
+      if(!el.getAttribute("aria-label")) el.setAttribute("aria-label", "Respuesta " + (i+1));
+      el.addEventListener("input", queueSave);
+    });
+    restore();
+    document.getElementById("btn-print").addEventListener("click", function(){ window.print(); });
+    document.getElementById("btn-download").addEventListener("click", download);
+    document.getElementById("btn-clear").addEventListener("click", clearAll);
+    window.addEventListener("beforeprint", mirrorForPrint);
+  }
+
+  function store(){
+    try{ return window.localStorage; }catch(e){ return null; }
+  }
+
+  function queueSave(){
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(save, 400);
+  }
+
+  function save(){
+    var s = store();
+    if(!s){ say("Este navegador no guarda; use Descargar o Imprimir."); return; }
+    var data = {};
+    fields.forEach(function(el){ if(el.value) data[el.dataset.k] = el.value; });
+    try{
+      s.setItem(KEY, JSON.stringify(data));
+      var t = new Date();
+      say("Guardado a las " + t.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}));
+    }catch(e){
+      say("No se pudo guardar. Descargue sus respuestas.");
+    }
+  }
+
+  function restore(){
+    var s = store();
+    if(!s){ say("Este navegador no guarda automáticamente."); return; }
+    var raw;
+    try{ raw = s.getItem(KEY); }catch(e){ raw = null; }
+    if(!raw){ say("Sus respuestas se guardan en este navegador."); return; }
+    try{
+      var data = JSON.parse(raw);
+      fields.forEach(function(el){ if(data[el.dataset.k]) el.value = data[el.dataset.k]; });
+      say("Recuperamos lo que escribió antes.");
+    }catch(e){ say("Sus respuestas se guardan en este navegador."); }
+  }
+
+  function clearAll(){
+    fields.forEach(function(el){ el.value = ""; });
+    var s = store();
+    if(s){ try{ s.removeItem(KEY); }catch(e){} }
+    say("Todo borrado.");
+  }
+
+  function mirrorForPrint(){
+    document.querySelectorAll("textarea.f").forEach(function(ta){
+      var box = ta.nextElementSibling;
+      if(!box || !box.classList.contains("answer-print")){
+        box = document.createElement("div");
+        box.className = "answer-print";
+        ta.parentNode.insertBefore(box, ta.nextSibling);
+      }
+      box.textContent = ta.value;
+    });
+  }
+
+  function download(){
+    var name = (document.getElementById("student-name") || {}).value || "";
+    var lines = [];
+    lines.push(document.title);
+    if(name) lines.push("Nombre: " + name);
+    lines.push("Fecha de descarga: " + new Date().toLocaleString());
+    lines.push("");
+    var current = "";
+    document.querySelectorAll("h3, .f").forEach(function(el){
+      if(el.tagName === "H3"){ current = el.textContent.trim(); lines.push(""); lines.push("== " + current + " =="); }
+      else if(el.value){ lines.push("  " + (el.dataset.q || el.dataset.k) + ": " + el.value); }
+    });
+    var blob = new Blob([lines.join("\n")], {type:"text/plain;charset=utf-8"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = (name ? name.replace(/[^\w\-]+/g,"_") + "-" : "") + (document.body.dataset.page || "respuestas") + ".txt";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+    say("Archivo descargado.");
+  }
+
+  function say(msg){ if(statusEl) statusEl.textContent = msg; }
+
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+</body>
+</html>

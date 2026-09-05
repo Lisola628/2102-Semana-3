@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El pluscuamperfecto · SPAN 2102</title>
+<style>
+:root{
+  --ink:#14213D; --blue:#2A6F97; --blue-pale:#F2F8FB; --blue-line:#C9D6E0;
+  --green:#4F7A2E; --green-pale:#F4F7F0; --green-line:#D5E0C8;
+  --gold-pale:#FFF8E6; --gold-line:#E8D9A8; --muted:#4A5A6A; --paper:#FFFFFF;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#EEF2F5;color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65;font-size:16px;}
+.wrap{max-width:820px;margin:0 auto;padding:28px 20px 60px;background:var(--paper);}
+header.hero{border-left:6px solid var(--blue);padding:18px 22px;background:var(--blue-pale);margin-bottom:22px;border-radius:0 6px 6px 0;}
+header.hero h1{margin:0 0 6px;font-size:27px;line-height:1.25;}
+header.hero .meta{margin:0;font-size:15px;color:var(--blue);font-weight:600;}
+header.hero .hello{margin:12px 0 0;font-size:15px;color:var(--muted);}
+h2.sec{font-size:15px;margin:0 0 8px;font-weight:700;}
+.box-gold{padding:12px 16px;background:var(--gold-pale);border:1px solid var(--gold-line);border-radius:6px;font-size:15px;margin:0 0 30px;}
+.box-blue{padding:14px 16px;background:var(--blue-pale);border-left:4px solid var(--blue);border-radius:0 6px 6px 0;margin:0;}
+.box-green{padding:14px 16px;background:var(--green-pale);border:1px solid var(--green-line);border-radius:6px;margin:0;}
+.box-warn{padding:14px 16px;background:var(--gold-pale);border:1px solid var(--gold-line);border-radius:6px;margin:0;}
+.step{margin-bottom:34px;padding-bottom:4px;}
+.step .tag{margin:0 0 4px;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--green);font-weight:700;}
+.step h3{margin:0 0 6px;font-size:20px;}
+.how{margin:0 0 12px;font-size:15px;color:var(--muted);font-style:italic;}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:0 0 14px;}
+th{border:1px solid var(--blue-line);background:#EDF3F7;padding:9px;text-align:left;}
+td{border:1px solid var(--blue-line);padding:6px 9px;vertical-align:top;}
+ol,ul{margin:0 0 14px;padding-left:24px;}
+li{margin-bottom:7px;}
+.es{font-size:16px;}
+footer{border-top:2px solid var(--blue);padding-top:16px;margin-top:10px;font-size:14.5px;color:var(--muted);}
+.pill{display:inline-block;background:#E7EFF5;color:var(--blue);border-radius:20px;padding:2px 11px;font-size:13px;font-weight:600;}
+.escena{border:1px solid var(--blue-line);border-radius:8px;padding:14px 16px;margin:0 0 12px;background:#FCFDFE;}
+.escena h4{margin:0 0 4px;font-size:17px;color:var(--blue);}
+.escena .lugar{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:700;margin:0 0 6px;}
+.escena p{margin:0 0 6px;}
+.escena .personajes{margin:0;font-size:15px;color:var(--muted);}
+
+/* ---- campos para escribir ---- */
+input.f{font:inherit;color:var(--ink);background:#FFFDF5;border:none;border-bottom:2px solid var(--gold-line);
+  padding:2px 6px;min-width:120px;width:170px;border-radius:3px 3px 0 0;}
+input.f:focus{outline:none;background:#FFF6D9;border-bottom-color:var(--blue);}
+input.f.wide{width:100%;}
+input.f.mini{width:64px;min-width:0;}
+td input.f{width:100%;min-width:0;background:transparent;border-bottom:1px dashed var(--blue-line);}
+td input.f:focus{background:#FFF6D9;border-bottom-style:solid;border-bottom-color:var(--blue);}
+textarea.f{font:inherit;color:var(--ink);background:#FFFDF5;border:1px solid var(--gold-line);border-radius:6px;
+  width:100%;padding:9px 11px;min-height:78px;resize:vertical;display:block;margin:6px 0 0;}
+textarea.f:focus{outline:none;background:#FFF6D9;border-color:var(--blue);}
+.answer-print{display:none;white-space:pre-wrap;border-bottom:1px solid #999;min-height:1.4em;padding:2px 0;}
+
+/* ---- barra de herramientas ---- */
+.toolbar{position:sticky;top:0;z-index:10;background:#fff;border:1px solid var(--blue-line);border-radius:8px;
+  padding:10px 12px;margin:0 0 24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.toolbar button{font:inherit;font-size:14.5px;cursor:pointer;border:1px solid var(--blue-line);background:#F7FAFC;
+  color:var(--ink);border-radius:6px;padding:7px 13px;}
+.toolbar button:hover{background:var(--blue-pale);border-color:var(--blue);}
+.toolbar button.primary{background:var(--blue);border-color:var(--blue);color:#fff;}
+.toolbar button.primary:hover{background:#215B7D;}
+.toolbar .status{font-size:13.5px;color:var(--muted);margin-left:auto;}
+.namebar{margin:0 0 22px;font-size:15px;}
+.namebar label{font-weight:600;margin-right:8px;}
+
+@media print{
+  body{background:#fff;font-size:11.5pt;}
+  .wrap{max-width:none;padding:0;}
+  .step{page-break-inside:avoid;}
+  .toolbar{display:none;}
+  input.f{background:transparent;border-bottom:1px solid #666;}
+  textarea.f{display:none;}
+  .answer-print{display:block;}
+}
+</style>
+</head>
+<body data-page="01-miercoles-pluscuamperfecto">
+<div class="wrap">
+
+<header class="hero">
+  <p class="meta">Wednesday, September 9 · Capítulo 15 · pp. 466–468</p>
+  <h1>El pluscuamperfecto: el pasado del pasado</h1>
+  <p class="hello">Every story has a moment <em>before</em> the moment. The car crashed — but two seconds earlier something else had already happened. That earlier layer is what today's tense is for: <span class="es"><em>había</em> + participio</span>. One helper verb, the same participles you already know, and suddenly you can tell a story with depth instead of a straight line.</p>
+</header>
+
+<div class="toolbar" role="region" aria-label="Herramientas">
+  <button type="button" id="btn-print" class="primary">Imprimir / Guardar en PDF</button>
+  <button type="button" id="btn-download">Descargar mis respuestas</button>
+  <button type="button" id="btn-clear">Borrar todo</button>
+  <span class="status" id="status" aria-live="polite"></span>
+</div>
+<p class="namebar"><label for="student-name">Nombre:</label><input class="f wide" id="student-name" data-k="nombre" style="max-width:320px" autocomplete="name"></p>
+
+<p class="box-gold"><strong>How this page works.</strong> Type your answers straight into it. Everything saves automatically <em>in this browser on this device</em>; it is not sent to me and it is not stored online. For a permanent copy, use <strong>Imprimir / Guardar en PDF</strong> or <strong>Descargar mis respuestas</strong> before you close.</p>
+
+<h2 class="sec">Today you will be able to…</h2>
+<ul>
+<li>Form the past perfect: <em>haber</em> in the imperfect + past participle.</li>
+<li>Say what you <strong>had</strong> or <strong>had not</strong> done before a given point in the past.</li>
+<li>Reconstruct a scene from several points of view — the skill behind every good story.</li>
+</ul>
+
+<p class="box-gold"><strong>Bring to class:</strong> your book (pp. 466–468) and one index card. No class Monday — <em>Labor Day</em> — so come with the Connect reading done.</p>
+
+<section class="step">
+  <p class="tag">Paso 1 · 6 min</p>
+  <h3>Dos segundos antes</h3>
+  <p class="how">Whole class, out loud. No writing rules yet — just listen to how the tense behaves.</p>
+  <div class="box-blue">
+    <p style="margin:0" class="es"><strong>La escena:</strong> Ayer, a las 8:05 de la mañana, su profesora entró en el salón de clase con los zapatos completamente mojados y sin café.</p>
+  </div>
+  <p style="margin-top:12px">¿Qué había pasado? Cambie la distancia en el tiempo y verá cómo cambia la historia:</p>
+  <table>
+    <tr><th style="width:32%">¿Cuándo?</th><th>¿Qué había pasado?</th></tr>
+    <tr><td class="es">dos segundos antes</td><td><input class="f" style="width:100%"></td></tr>
+    <tr><td class="es">dos minutos antes</td><td><input class="f" style="width:100%"></td></tr>
+    <tr><td class="es">dos horas antes</td><td><input class="f" style="width:100%"></td></tr>
+    <tr><td class="es">dos años antes</td><td><input class="f" style="width:100%"></td></tr>
+  </table>
+  <p style="margin:0"><strong>Notice what you just did.</strong> The anchor event (<span class="es"><em>entró</em></span>) is in the preterite. Everything you added is <em>older</em> than that anchor. That relationship — one past behind another past — is the whole tense.</p>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 2 · 7 min</p>
+  <h3>La forma: <em>había</em> + participio</h3>
+  <p class="how">Notes time. The chart takes thirty seconds; the ¡OJO! box under it is where the points are.</p>
+  <table>
+    <tr><th style="width:50%">haber (imperfecto)</th><th>ejemplo</th></tr>
+    <tr><td class="es">yo <strong>había</strong></td><td class="es">había estudiado</td></tr>
+    <tr><td class="es">tú <strong>habías</strong></td><td class="es">habías comido</td></tr>
+    <tr><td class="es">usted / él / ella <strong>había</strong></td><td class="es">había nacido</td></tr>
+    <tr><td class="es">nosotros/as <strong>habíamos</strong></td><td class="es">habíamos obtenido</td></tr>
+    <tr><td class="es">vosotros/as <strong>habíais</strong></td><td class="es">habíais visto</td></tr>
+    <tr><td class="es">ustedes / ellos / ellas <strong>habían</strong></td><td class="es">habían salido</td></tr>
+  </table>
+  <div class="box-warn">
+    <p style="margin:0 0 8px"><strong>¡OJO! Four things worth getting right</strong></p>
+    <ol style="margin:0">
+      <li><strong>The pluperfect never travels alone.</strong> It leans on a second past moment, and that moment is usually marked: <span class="es"><em>antes de…, para…, cuando…, ya, todavía no, nunca antes</em></span>. If you cannot point to the anchor, you probably want the preterite instead.</li>
+      <li><strong>The participle is frozen in <em>-o</em>.</strong> <span class="es"><em>Ellas ya habían llegado</em></span> — never <em>llegadas</em>. Same rule as last week with <em>he/has/ha</em>.</li>
+      <li><strong>Nothing gets between <em>había</em> and the participle</strong>, and pronouns go in front of the whole thing: <span class="es"><em>Ya <strong>me</strong> había duchado. · Todavía no <strong>lo</strong> había visto.</em></span></li>
+      <li><strong>Two different <em>habías</em>.</strong> <span class="es"><em>Había mucha gente</em></span> = <em>there were a lot of people</em>. <span class="es"><em>Había llegado mucha gente</em></span> = <em>a lot of people had arrived</em>. The participle is what tells you which one you are reading.</li>
+    </ol>
+  </div>
+  <p class="box-blue" style="margin:14px 0 0"><strong>Need another explanation?</strong> Our free open resource has a chapter on this exact tense, with charts and self-check practice: <a href="https://louis.pressbooks.pub/sustainablespanish/chapter/preterito-pluscuamperfecto/">El pretérito pluscuamperfecto</a> &mdash; <em>Spanish for a Sustainable World II</em> (LOUIS, free, CC&nbsp;BY). Good for reviewing before Monday&#39;s composition.</p>
+  <p style="margin:12px 0 0"><strong>Three tenses, three jobs.</strong> <span class="es"><em>He viajado a la Argentina</em></span> (present perfect — finished, but the time frame is still open) · <span class="es"><em>Viajé a la Argentina en 2019</em></span> (preterite — closed, dated) · <span class="es"><em>Antes de 2019 nunca había viajado a la Argentina</em></span> (pluperfect — older than another past moment).</p>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 3 · 8 min</p>
+  <h3>Fechas importantes en su vida</h3>
+  <p class="how">Four minutes on your own, then compare in pairs. <span class="es">¿Tienen alguna fecha en común?</span></p>
+  <div class="box-green">
+    <p style="margin:0 0 6px"><strong>Vocabulario útil</strong></p>
+    <p style="margin:0" class="es">empezar (empiezo) la universidad · nacer (nazco) <em>to be born</em> · recibir una multa <em>to get a fine</em> · terminar la escuela secundaria · mudarse <em>to move house</em> · aprender a manejar · salir del país</p>
+  </div>
+  <p style="margin-top:12px">¿Qué había hecho o todavía no había hecho usted para las siguientes fechas?</p>
+  <ol class="es">
+    <li>para julio de 2006 <input class="f" style="width:100%"></li>
+    <li>antes de enero de 2015 <input class="f" style="width:100%"></li>
+    <li>antes del verano de 2020 <input class="f" style="width:100%"></li>
+    <li>para la primavera de 2023 <input class="f" style="width:100%"></li>
+    <li>antes del verano pasado <input class="f" style="width:100%"></li>
+    <li>para septiembre de este año <input class="f" style="width:100%"></li>
+  </ol>
+  <p><strong>Con su compañero/a:</strong> una fecha que los dos tienen en común, o una diferencia que les sorprendió. Prepárense para decírselo a la clase.</p>
+  <textarea class="f" placeholder=""></textarea>
+  <div class="box-warn" style="margin-top:14px">
+    <p style="margin:0 0 6px"><strong>Fije el punto de referencia</strong> — this is the move students miss most.</p>
+    <p style="margin:0 0 8px">The hard part of this tense is not the form, it is remembering that it needs a <em>second</em> past moment to lean on. Set that moment first, out loud, and the rest follows. It works for places as well as for people:</p>
+    <p style="margin:0 0 8px" class="es"><em>Modelo:</em> «Cuando llegué a Baton Rouge en 2024, la ciudad ya <strong>había construido</strong> el parque nuevo, pero todavía no <strong>había resuelto</strong> el problema de las inundaciones».</p>
+    <p style="margin:0 0 4px">Su turno. Escoja un lugar y un año, y diga dos cosas: una que ya había pasado y una que todavía no había pasado.</p>
+    <ol class="es" style="margin:0">
+      <li>Ya había… <input class="f" style="width:100%"></li>
+      <li>Todavía no había… <input class="f" style="width:100%"></li>
+    </ol>
+  </div>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 4 · 16 min</p>
+  <h3>La escena: cuatro testigos, una historia</h3>
+  <p class="how">Groups of four. This is the main event of the day — everyone writes, everyone speaks.</p>
+  <p>Something happened. You each saw it from a different place, and each of you has a version of what <strong>had already happened</strong> before it. The catch: nobody wants to be blamed.</p>
+  <ol>
+    <li>Your group picks <strong>one</strong> scene. Each person claims a different <em>personaje</em> — no repeats.</li>
+    <li>Alone (5 min), write <strong>three</strong> sentences in the pluscuamperfecto from inside your character: what you had done <em>dos horas antes</em>, <em>diez minutos antes</em>, <em>dos segundos antes</em>.</li>
+    <li>In the group (6 min), put all twelve sentences in chronological order out loud and build one single story.</li>
+    <li>Present it to the class in 60 seconds. The class decides: <span class="es"><strong>¿Quién tuvo la culpa?</strong></span> and <span class="es"><strong>¿Quién tiene la mejor excusa?</strong></span></li>
+  </ol>
+
+  <div class="escena">
+    <p class="lugar">Buenos Aires, la Argentina</p>
+    <h4>1. El apagón en la milonga</h4>
+    <p class="es">Son las once de la noche en San Telmo. En medio de un tango, se apagan todas las luces del salón y la música se detiene.</p>
+    <p class="personajes"><strong>Personajes:</strong> la bailarina · el bandoneonista · el turista canadiense que grababa todo con el celular · la dueña del café</p>
+  </div>
+
+  <div class="escena">
+    <p class="lugar">La Patagonia, la Argentina</p>
+    <h4>2. El choque en la Ruta 40</h4>
+    <p class="es">A las seis de la tarde, un auto rojo y una bicicleta chocan lentamente en el estacionamiento de una parada de la Ruta 40. Nadie se lastima, pero el mate del conductor termina en el suelo.</p>
+    <p class="personajes"><strong>Personajes:</strong> la conductora del auto rojo · el ciclista · la policía · el vendedor de empanadas</p>
+  </div>
+
+  <div class="escena">
+    <p class="lugar">El Parque Nacional Los Glaciares, la Argentina</p>
+    <h4>3. El desprendimiento del Perito Moreno</h4>
+    <p class="es">Un bloque enorme de hielo se desprende del glaciar y cae al lago. Cincuenta turistas lo graban… y una sola persona, la que llevaba la mejor cámara, no grabó nada.</p>
+    <p class="personajes"><strong>Personajes:</strong> la guía turística · el fotógrafo que no grabó nada · una niña de ocho años · el guardaparques</p>
+  </div>
+
+  <div class="escena">
+    <p class="lugar">Las Cataratas del Iguazú, la Argentina</p>
+    <h4>4. El único turista seco</h4>
+    <p class="es">El grupo vuelve de la Garganta del Diablo completamente empapado <em>(soaked)</em>. Todos menos una persona, que llega perfectamente seca y muy tranquila.</p>
+    <p class="personajes"><strong>Personajes:</strong> el turista seco · la guía del parque · el señor que perdió el sombrero en el agua · el vendedor de impermeables <em>(rain ponchos)</em></p>
+  </div>
+
+  <div class="escena">
+    <p class="lugar">Montevideo, el Uruguay</p>
+    <h4>5. El auto azul parado en la Rambla</h4>
+    <p class="es">A la hora del atardecer, un auto azul de los años sesenta se detiene en medio de la Rambla y no arranca más. Detrás se forma una fila de veinte vehículos.</p>
+    <p class="personajes"><strong>Personajes:</strong> el dueño del auto (75 años) · la mecánica · el conductor del ómnibus que está atrás · la joven que filma todo</p>
+  </div>
+
+  <p style="margin-top:16px"><strong>Mi personaje:</strong> <input class="f" style="width:260px"> &nbsp; <strong>Mi escena (número):</strong> <input class="f mini"></p>
+  <ol class="es">
+    <li>Dos horas antes… <textarea class="f" placeholder=""></textarea></li>
+    <li>Diez minutos antes… <textarea class="f" placeholder=""></textarea></li>
+    <li>Dos segundos antes… <textarea class="f" placeholder=""></textarea></li>
+  </ol>
+  <div class="box-green">
+    <p style="margin:0 0 6px"><strong>Frases para defenderse y para acusar</strong></p>
+    <p style="margin:0" class="es">Yo no tuve la culpa, porque ya había… · Cuando llegué, ella ya había… · Todavía no había… cuando… · Nunca antes había visto algo así. · Resulta que él había… · Para colmo <em>(to top it off)</em>, nadie había… · ¡Un momento! Usted había dicho que…</p>
+  </div>
+  <p style="margin-top:12px"><strong>La versión del grupo</strong> — la historia completa, en orden:</p>
+  <textarea class="f" placeholder="" style="min-height:120px"></textarea>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 5 · 7 min</p>
+  <h3>Intercambios</h3>
+  <p class="how">Pairs, out loud. Ask the full question, listen for the whole answer, then switch.</p>
+  <p class="es" style="margin-bottom:10px"><strong>MODELO:</strong> E1: ¿Qué cosa no <strong>habías aprendido</strong> a hacer antes del año pasado? — E2: Pues… no <strong>había aprendido</strong> a nadar. Aprendí a nadar este año en la clase de natación.</p>
+  <table>
+    <tr><th style="width:62%">Pregúntele a su compañero/a</th><th>Su respuesta (una nota)</th></tr>
+    <tr><td class="es">¿qué cosa? / no haber aprendido a hacer antes de este semestre</td><td><input class="f" style="width:100%"></td></tr>
+    <tr><td class="es">¿qué materia? / no haber estudiado antes de venir a esta universidad</td><td><input class="f" style="width:100%"></td></tr>
+    <tr><td class="es">¿qué deporte? / (no) haber practicado mucho antes de cumplir 16 años</td><td><input class="f" style="width:100%"></td></tr>
+    <tr><td class="es">¿qué libro importante? / no haber leído antes de venir a esta universidad</td><td><input class="f" style="width:100%"></td></tr>
+    <tr><td class="es">¿qué decisión? / no haber tomado antes de cumplir 18 años</td><td><input class="f" style="width:100%"></td></tr>
+    <tr><td class="es">¿a quién de las personas importantes de su vida? / no haber conocido antes de venir a la universidad</td><td><input class="f" style="width:100%"></td></tr>
+  </table>
+  <p><strong>Su pregunta original</strong> (invente una y hágasela a su compañero/a):</p>
+  <input class="f wide">
+  <p style="margin-top:12px">Ahora dígale a la clase algo de su historia personal que ustedes dos tienen en común. Si no tienen nada en común, cuente algo interesante de la vida de su compañero/a.</p>
+  <textarea class="f" placeholder=""></textarea>
+</section>
+
+<section class="step">
+  <p class="tag">Paso 6 · 4 min</p>
+  <h3>Boleto de salida</h3>
+  <p class="how">Index card, with your name. Draft it here first if you like.</p>
+  <ol class="es">
+    <li>Una cosa que usted ya <strong>había hecho</strong> antes de cumplir 18 años.<br><textarea class="f" placeholder=""></textarea></li>
+    <li>Una cosa que su ciudad o su universidad <strong>ya había hecho</strong> por el medio ambiente antes de que usted llegara — y una que <strong>todavía no había hecho</strong>.<br><textarea class="f" placeholder=""></textarea></li>
+    <li>Desde su personaje del Paso 4: una oración que explique por qué usted es inocente.<br><textarea class="f" placeholder=""></textarea></li>
+  </ol>
+</section>
+
+<footer>
+  <p style="margin:0 0 6px"><span class="pill">Tarea</span> <strong>For Friday:</strong> Connect · read pp. 469–471 (<em>Mundo hispano</em>: la Argentina y el Uruguay, and the story «Azul Cielo»).</p>
+  <p style="margin:0 0 6px">Extra practice, free and open: <a href="https://louis.pressbooks.pub/sustainablespanish/chapter/preterito-pluscuamperfecto/">El pretérito pluscuamperfecto</a> in <em>Spanish for a Sustainable World II</em>.</p>
+  <p style="margin:0">Friday is our cultural day. Come with <strong>one natural place in Argentina or Uruguay</strong> you would like to visit — the name is enough — and we will build a class map from them.</p>
+</footer>
+
+</div>
+<script>
+(function(){
+  var KEY = "span2102:" + (document.body.dataset.page || location.pathname);
+  var fields = [];
+  var statusEl, saveTimer;
+
+  function init(){
+    statusEl = document.getElementById("status");
+    fields = Array.prototype.slice.call(document.querySelectorAll(".f"));
+    fields.forEach(function(el, i){
+      if(!el.dataset.k) el.dataset.k = "q" + i;
+      if(!el.getAttribute("aria-label")) el.setAttribute("aria-label", "Respuesta " + (i+1));
+      el.addEventListener("input", queueSave);
+    });
+    restore();
+    document.getElementById("btn-print").addEventListener("click", function(){ window.print(); });
+    document.getElementById("btn-download").addEventListener("click", download);
+    document.getElementById("btn-clear").addEventListener("click", clearAll);
+    window.addEventListener("beforeprint", mirrorForPrint);
+  }
+
+  function store(){
+    try{ return window.localStorage; }catch(e){ return null; }
+  }
+
+  function queueSave(){
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(save, 400);
+  }
+
+  function save(){
+    var s = store();
+    if(!s){ say("Este navegador no guarda; use Descargar o Imprimir."); return; }
+    var data = {};
+    fields.forEach(function(el){ if(el.value) data[el.dataset.k] = el.value; });
+    try{
+      s.setItem(KEY, JSON.stringify(data));
+      var t = new Date();
+      say("Guardado a las " + t.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}));
+    }catch(e){
+      say("No se pudo guardar. Descargue sus respuestas.");
+    }
+  }
+
+  function restore(){
+    var s = store();
+    if(!s){ say("Este navegador no guarda automáticamente."); return; }
+    var raw;
+    try{ raw = s.getItem(KEY); }catch(e){ raw = null; }
+    if(!raw){ say("Sus respuestas se guardan en este navegador."); return; }
+    try{
+      var data = JSON.parse(raw);
+      fields.forEach(function(el){ if(data[el.dataset.k]) el.value = data[el.dataset.k]; });
+      say("Recuperamos lo que escribió antes.");
+    }catch(e){ say("Sus respuestas se guardan en este navegador."); }
+  }
+
+  function clearAll(){
+    fields.forEach(function(el){ el.value = ""; });
+    var s = store();
+    if(s){ try{ s.removeItem(KEY); }catch(e){} }
+    say("Todo borrado.");
+  }
+
+  function mirrorForPrint(){
+    document.querySelectorAll("textarea.f").forEach(function(ta){
+      var box = ta.nextElementSibling;
+      if(!box || !box.classList.contains("answer-print")){
+        box = document.createElement("div");
+        box.className = "answer-print";
+        ta.parentNode.insertBefore(box, ta.nextSibling);
+      }
+      box.textContent = ta.value;
+    });
+  }
+
+  function download(){
+    var name = (document.getElementById("student-name") || {}).value || "";
+    var lines = [];
+    lines.push(document.title);
+    if(name) lines.push("Nombre: " + name);
+    lines.push("Fecha de descarga: " + new Date().toLocaleString());
+    lines.push("");
+    var current = "";
+    document.querySelectorAll("h3, .f").forEach(function(el){
+      if(el.tagName === "H3"){ current = el.textContent.trim(); lines.push(""); lines.push("== " + current + " =="); }
+      else if(el.value){ lines.push("  " + (el.dataset.q || el.dataset.k) + ": " + el.value); }
+    });
+    var blob = new Blob([lines.join("\n")], {type:"text/plain;charset=utf-8"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = (name ? name.replace(/[^\w\-]+/g,"_") + "-" : "") + (document.body.dataset.page || "respuestas") + ".txt";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+    say("Archivo descargado.");
+  }
+
+  function say(msg){ if(statusEl) statusEl.textContent = msg; }
+
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+</body>
+</html>
