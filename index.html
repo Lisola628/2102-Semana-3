@@ -1,3 +1,84 @@
+
+/
+Claude finished the response
+Awesome. only issue is slide two words are togueter
+
+Ran a command, read a file
+The two lines in each label were butted up against each other, and the label column was too narrow so pluscuamperfecto had nowhere to breathe.
+
+What changed on slide 2:
+
+Each label is now two separate blocks instead of a <br>, with real spacing between them, so lo más viejo and pluscuamperfecto read as two things
+The tense name is in gold, the time description stays muted — so the eye picks up pluscuamperfecto / pretérito / presente as a set going down the column
+Label column widened from 26% to 30%, and the gap between label and bar doubled
+Bars got taller with more internal padding, and the space between lanes increased
+Take a look and tell me if it's breathing now. If pluscuamperfecto still wraps awkwardly on your projector, the fix is to drop the label font another notch or widen the column to 34% — easy either way.
+
+
+03 escenas pluscuamperfecto
+Code·HTML 
+1788639908671_Screenshot-2026-09-05_15-24-49@2x.png
+thi is what i see
+
+Thought for 6s
+That's a flexbox bug on my side, not a spacing issue: the bar is a flex container, so the spaces around <strong> collapsed and the words fused. Wrapping the sentence in a single element fixes it.
+
+Ran a command, read a file
+Should read Ya había salido de casa now, with real spaces.
+
+The cause was worth naming, since it can bite again: when a flex container holds loose text mixed with an inline tag, the browser turns each chunk into a separate flex item and throws away the whitespace between them. Wrapping the whole sentence in one <span> makes it a single item, and the spaces come back. I also switched the bar to min-height with vertical padding so a longer sentence can wrap instead of overflowing.
+
+The labels look right in your screenshot — lo más viejo over pluscuamperfecto, with the tense names in gold running down the column. That part landed.
+
+Give it another look and confirm all three lines read cleanly before you push it.
+
+
+03 escenas pluscuamperfecto
+Code·HTML 
+it works tank you!
+
+Good. Semana 3 is ready to push:
+
+index.html
+01-miercoles-pluscuamperfecto.html
+02-viernes-diversidad-recursos-naturales.html
+03-escenas-pluscuamperfecto.html — the deck (worth adding a card for it on the index if you want students to find it after class)
+And separately, SPAN2102_Oral1_Tarjetas.pdf to print and cut.
+
+Two loose ends whenever you want them: the two-column tally sheet for scoring live during the oral, and the email to Isabel about the student handout. That one has a clock on it — the instructor sheet says post the Student Guide by Monday.
+
+so i need to upload the ne index. and 03
+
+Thought for 3s
+Yes — but the index doesn't link to the deck yet, so let me add it first. Otherwise 03 would sit there unreachable.
+
+Ran a command, read a file
+Upload index.html and 03-escenas-pluscuamperfecto.html.
+
+The index now has a third card sitting between Wednesday and Friday — Las cinco escenas, labeled "Miércoles, 9 de septiembre · en clase," described as what gets projected, kept there so students can review it afterward. Order on the page: Monday (no class), Wednesday's worksheet, the deck, Friday.
+
+I've included 01 and 02 above as well, but only in case your uploaded copies are older than the last few rounds of edits. If you already pushed them after the composition alignment changes, you don't need to touch them.
+
+
+Index
+Code·HTML 
+
+03 escenas pluscuamperfecto
+Code·HTML 
+
+01 miercoles pluscuamperfecto
+Code·HTML 
+
+02 viernes diversidad recursos naturales
+Code·HTML 
+
+Write a message…
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,28 +112,34 @@ a.card p{margin:0;font-size:15px;color:var(--muted);}
   <h1>Semana 3 · El pluscuamperfecto y el día cultural</h1>
   <p>SPAN 2102 — Intermediate Spanish II · Capítulo 15 · Prof. Liliana Naranjo · 7–11 de septiembre de 2026</p>
 </header>
-
+ 
 <p>The two class activities for this week. Instructions and grammar notes are in English; everything you say and write is in Spanish.</p>
-
+ 
 <p class="howto"><strong>You can write directly on these pages.</strong> Type your answers in and they save automatically — but only <em>in the browser on the device you are using</em>. They are not sent to me and they are not stored online, so if you switch from your laptop to your phone, or clear your browsing data, the answers do not follow you. Whenever you want a copy that lasts, use <strong>Imprimir / Guardar en PDF</strong> or <strong>Descargar mis respuestas</strong> at the top of the page. Prefer paper? Print the page blank before class and write by hand.</p>
-
+ 
 <div class="card off">
   <span class="day">Lunes, 7 de septiembre</span>
   <p><strong>No hay clase</strong> — Labor Day Holiday. Connect review only; read p. 466 before Wednesday.</p>
 </div>
-
+ 
 <a class="card" href="01-miercoles-pluscuamperfecto.html">
   <span class="day">Miércoles, 9 de septiembre</span>
   <h3>El pluscuamperfecto: el pasado del pasado</h3>
   <p>pp. 466–468 — <em>Había</em> + participle, important dates in your life, and a five-scene reconstruction: four witnesses, one story.</p>
 </a>
-
+ 
+<a class="card" href="03-escenas-pluscuamperfecto.html">
+  <span class="day">Miércoles, 9 de septiembre · en clase</span>
+  <h3>Las cinco escenas</h3>
+  <p>Lo que proyectamos en clase: la línea del tiempo, la forma de <em>había</em> + participio, y las cinco escenas del Paso 4. Aquí para repasar después.</p>
+</a>
+ 
 <a class="card" href="02-viernes-diversidad-recursos-naturales.html">
   <span class="day">Viernes, 11 de septiembre</span>
   <h3>Día cultural: Diversidad y recursos naturales</h3>
   <p>Mundo hispano · pp. 469–471 — Argentina and Uruguay, Louisiana wetlands, the story «Azul Cielo», and <em>voseo</em> on the radio.</p>
 </a>
-
+ 
 <p class="note">Textbook: <em>Puntos de partida</em> (Connect). Open resource for this week: <a href="https://louis.pressbooks.pub/sustainablespanish/">Spanish for a Sustainable World II</a> &mdash; see the <a href="https://louis.pressbooks.pub/sustainablespanish/chapter/preterito-pluscuamperfecto/">Pretérito pluscuamperfecto</a> chapter for Wednesday. Last week&#39;s pages (Semana 2: el participio, el pretérito perfecto de indicativo y de subjuntivo) are still online at their own address — nothing here replaces them. These pages are class handouts, not a substitute for the reading. Free to reuse — CC BY.</p>
 </div>
 </body>
